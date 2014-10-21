@@ -1,0 +1,83 @@
+
+<div id="shopEntry" style="margin-top:5px;" class="mainbox col-md-12 col-md-offset-0 col-sm-8 col-sm-offset-1">                    
+    <div class="panel panel-info" >
+        <div class="panel-heading" >
+            <div class="panel-title">Enter Shop Details</div>
+
+        </div>     
+
+        <div style="padding-top:30px" class="panel-body" >
+
+            <form id="shopEntryform" class="form-horizontal" role="form" ng-submit="createShop()">
+
+
+                <div class="form-group">
+                    <label for="shopName" class="col-md-3 control-label">Shop Name</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control"  ng-model="shopInfo.shopName" name="shopName" placeholder="Shop Name" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="Location" class="col-md-3 control-label">Location</label>
+                    <div class="col-md-9">
+                        <google-places location=location></google-places> 
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="address" class="col-md-3 control-label">Street/Road</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control"   ng-model="street" name="address" placeholder="Street/Road" required>
+                    </div>
+                </div>
+
+                <div class="form-group" ng-hide="true">
+                    <label for="City" class="col-md-3 control-label">City</label>
+                    <div class="col-md-9">
+                        <select  class="form-control"  ng-model="selectedCityId" ng-options="item.cityId as item.cityName for item in cities"></select> 
+                        <!--<input type="text" class="form-control" ng-model="shopInfo.city" name="city" placeholder="city"> -->
+                    </div> 
+                </div> 
+
+                <div class="form-group" ng-hide="true">
+                    <label for="state" class="col-md-3 control-label">State</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control"  ng-model="stateName.state" name="state" placeholder="state">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone1" class="col-md-3 control-label">Phone Number1</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control" ng-focus="assignShopInfo()" ng-model="shopInfo.phone1" name="phone1" placeholder="Phone1">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="phone2" class="col-md-3 control-label">Phone Number2</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control" ng-model="shopInfo.phone2" name="phone2" placeholder="Phone2">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="website" class="col-md-3 control-label">Website</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control" ng-model="shopInfo.website" name="website" placeholder="website">
+                    </div>
+                </div> 
+                <div class="form-group ">
+                    <!-- Button -->                                        
+                    <div class="col-md-offset-2 col-md-9 pull-right">
+                        <a   href="#/shopsummary" class="btn btn-primary"><i class="icon-hand-right"></i>Cancel</a>
+                        <button id="btn-shopEntry"  type="submit" class="btn btn-primary"><i class="icon-hand-right"></i> Submit</button>&nbsp;&nbsp
+
+                    </div>
+
+                </div>
+
+
+            </form>     
+
+        </div>                     
+    </div>  
+</div>

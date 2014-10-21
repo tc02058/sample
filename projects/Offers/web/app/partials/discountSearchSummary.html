@@ -1,0 +1,62 @@
+
+
+<div ng-controller="discountSSController">
+
+    <form class="navbar-form navbar-left" role="search">
+        <div class="form-group">
+     
+            <select style="height:32px;"   ng-change="changeCity()"  ng-model="selectedCityId" ng-options="item.cityId as item.cityName for item in cities.fromServer"></select> 
+            <input type="text" list="searchlist"   placeholder="Enter the product or shop name to search" ng-keyup="getSearchLst(item)" ng-model="item.searchId" class="form-control" style="width:450px" />
+            <button type="button" class="btn btn-primary" ng-click="searchDiscount(item, 1)">Search</button>   
+        </div>
+        <datalist id="searchlist">
+            <option ng-repeat="searchItem in searchData.fromServer|filter:$viewValue | limitTo:100"  value="{{searchItem.searchName}}">
+            </option>
+        </datalist>
+            
+    </form> 
+   
+    <br>
+    <br>
+    <br>
+    <br> 
+
+   
+    
+    <div id="discountsummary" style="margin-top:5px;" class="mainbox col-md-8 col-md-offset-0 col-sm-8 col-sm-offset-1">                    
+     
+       
+        <div class="panel panel-info" >
+            <div class="panel-title pull-right">
+                <button type="button" class="btn btn-link" ng-click="prevPage(prev)"><b><u>Prev</u></b></button>   
+                <button type="button" class="btn btn-link" ng-click="nextPage(next)"><b><u>Next</u></b></button>   
+            </div>  
+
+            <div class="panel-heading">
+                <div class="panel-title"><b>Latest Offers !</b></div>
+            </div>     
+
+            <table  class="table table-striped table-condensed table-hover table-bordered" >
+                
+                 <tr  ng-repeat="data in discountData.fromServer">
+                    <td  style="font-size:15px"><a   href = "#/discountDetails/{{data.shopId.shopId}}">
+                            <b style="font-size: 25px">{{data.productId.productName}}</b> 
+                            &nbsp;&nbsp;&nbsp <b> MRP:&nbsp Rs. {{data.price}} &nbsp;&nbsp;&nbsp 
+                                Our price:&nbsp Rs. {{data.discPrice}} &nbsp;&nbsp;&nbsp 
+                                {{data.discountPercentage}}% &nbsp  Discount</b>
+                            <br>{{data.discountDescription}}<br> 
+                            <div class="pull-right">{{data.shopId.shopName}} &nbsp;&nbsp;&nbsp Valid from : &nbsp{{data.validStartDate|date:'dd/MM/yyyy'}}
+                                &nbsp;&nbsp;&nbsp;&nbsp To : &nbsp{{data.validEndDate|date:'dd/MM/yyyy'}}</div>
+                            </a></td>
+
+                </tr>
+
+            </table> 
+        </div>   
+
+    </div>  
+
+
+</div>
+
+ 

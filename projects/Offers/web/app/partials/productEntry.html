@@ -1,0 +1,52 @@
+
+<div id="shopEntry" style="margin-top:5px;" class="mainbox col-md-8 col-md-offset-0 col-sm-8 col-sm-offset-1">                    
+    <div class="panel panel-info" >
+        <div class="panel-heading" >
+            <div class="panel-title">Product Details</div>
+
+        </div>     
+
+        <div style="padding-top:30px" class="panel-body" >
+
+            <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
+
+            <form id="productEntryForm" class="form-horizontal" role="form" ng-submit="createProduct()">
+
+
+                <div class="form-group">
+                    <label for="CategoryName" class="col-md-3 control-label">Select Category</label>
+                    <div class="col-md-9">
+                         <select style="height:32px;"  ng-model="productData.categoryId" ng-options="item.categoryId as item.categoryName for item in categories"></select> 
+
+                    </div>
+                  
+                </div>
+
+
+                <div class="form-group">
+                    <label for="product" class="col-md-3 control-label">Product Name</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control"   ng-model="productData.productName" name="Product" placeholder="Enter Product Name" required>
+                    </div>
+                </div>
+
+              
+
+             
+                <div class="form-group ">
+                    <!-- Button -->                                        
+                    <div class="col-md-offset-3 col-md-9 pull-right">
+                         <a   href="#/discountEntry" class="btn btn-primary "><i class="icon-hand-right"></i>Cancel</a>&nbsp;&nbsp
+                        <button id="btn-signup"  type="submit" class="btn btn-primary "><i class="icon-hand-right"></i> &nbsp Submit</button>
+
+                    </div>
+                </div>
+
+
+            </form>     
+
+
+
+        </div>                     
+    </div>  
+</div>

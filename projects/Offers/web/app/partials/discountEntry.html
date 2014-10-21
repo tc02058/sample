@@ -1,0 +1,105 @@
+<script>
+$(function() {
+$( "#datepicker" ).datepicker();
+});
+ $('.dp').on('change', function () {
+        $('.datepicker').hide();
+    });
+$(function()
+{
+   $( "#datepicker1" ).datepicker(); 
+});
+</script>  
+<div id="discountEntry" style="margin-top:1px;" class="mainbox col-md-8 col-md-offset-0 col-sm-8 col-sm-offset-1">                    
+    <div class="panel panel-info" >
+        <div class="panel-heading" >
+            <div class="panel-title">Offer Details</div>
+
+        </div>     
+
+        <div style="padding-top:10px" class="panel-body" >
+
+       
+            <form id="discountEntryForm" class="form-horizontal" role="form" ng-submit="createOffer(item)">
+
+         
+     
+
+                <div class="form-group">
+                    <label for="productName" class="col-md-3 control-label">Product Name</label>
+                    <div class="col-md-9">
+                        <input type="text" list="productList" class="form-control"   placeholder="Enter the product name to search" ng-keyup="getSearchLst(item)" ng-model="item.productName"/>
+                        <datalist id="productList">
+                            <option ng-repeat="searchItem in searchData|filter:$viewValue | limitTo:100"  value="{{searchItem.productName}}">
+                            </option>
+                        </datalist>    
+
+                    </div>
+                    <label for="shopName" class="col-md-20 control-label pull-right">Please click <a href="#/productEntry" class="btn btn-primary">product Entry</a> to enter new product &nbsp;&nbsp;&nbsp </label>
+                </div>
+               
+
+                <div class="form-group">
+                    <label for="price" class="col-md-3 control-label">MRP</label>
+                    <div class="col-md-9">
+                        <input type="number"  class="form-control"   ng-model="offerData.price" name="price"  placeholder="MRP" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="discPrice" class="col-md-3 control-label">Our Price</label>
+                    <div class="col-md-9">
+
+                        <input type="number"  class="form-control" ng-model="offerData.discPrice" name="discprice" placeholder="our price" required> 
+                    </div> 
+                </div> 
+                <!--   <div class="form-group">
+                      <label for="discPercentage" class="col-md-3 control-label">Discount %</label>
+                      <div class="col-md-9">
+  
+                          <input type="number"  class="form-control" ng-model="offerData.discountPercentage" name="discpercentage" placeholder="Discount percentage"> 
+                      </div> 
+                  </div> -->
+
+                <div class="form-group">
+                    <label for="state" class="col-md-3 control-label">Description</label>
+                    <div class="col-md-9">
+                        <textarea rows="2" cols="50" class="form-control"  ng-model="offerData.discountDescription" name="state" placeholder="offer Details"></textarea>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="startDate" class="col-md-3 control-label">valid start date</label>
+
+                    <div class="col-md-9">
+                
+                    <input type="text" id="datepicker" class="form-control dp" ng-model="offerData.validStartDate" name="startDate" placeholder="offer start date"> 
+                    </div> 
+                </div>
+                <div class="form-group">
+                    <label for="endDate" class="col-md-3 control-label">Valid End Date</label>
+                    <div class="col-md-9">
+                        <input type="text" id="datepicker1" class="form-control dp" ng-model="offerData.validEndDate" name="endDate" placeholder="offer end date">
+                    </div>
+                </div>
+
+
+
+                <div class="form-group">
+                    <!-- Button -->                                        
+                    <div class="col-md-offset-2 col-md-9 pull-right">
+                        <a   href="#/shopDetails/{{shopId}}" class="btn btn-primary "><i class="icon-hand-right"></i>Cancel</a>&nbsp;&nbsp
+                        <button id="btn-signup"  type="submit" class="btn btn-primary"><i class="icon-hand-right"></i> Submit</button>
+
+                    </div>
+                </div> 
+
+
+            </form>     
+
+
+
+        </div>                     
+    </div>  
+</div>
+ 
